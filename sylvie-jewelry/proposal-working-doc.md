@@ -48,9 +48,16 @@ Gary asked you to *"come back with your thoughts on how you can add the most val
    - **B2B acquisition** (reaching jeweler owners directly) — LinkedIn / custom-audience play.
 6. **Lead with engine (a) retailer-enablement / local SEO, NOT (b) direct B2B owner-acquisition.** Proposed
    phasing (this is the backbone — confirm in AM):
-   - **Phase 1 (test phase):** On Sylvie's OWN site — technical cleanup + redeploy DR-50 authority + rebuild
-     a batch of local retailer landing pages properly (Portland as worked example). Zero retailer risk.
-     Goal: prove execution + move rankings.
+   - **Phase 1 (test phase):** On Sylvie's OWN site. NOTE: Sylvie ALREADY HAS a location/retailer landing
+     page per retailer on their own site (Ian [39:33]: "we've got all these landing pages" — Des Moines ranks
+     ~p1 #8-9; Portland/Kassab ~p2-3). So Phase 1 is NOT building pages — it's OPTIMIZING the existing,
+     under-optimized pages to push them toward #1: fix keyword targeting ("in Portland" ~20 vol -> "Portland"
+     ~400 vol), fix H1 (currently retailer name; target kw is only an H2), build backlinks (the Portland page
+     has NONE), lengthen meta. Plus general technical cleanup + redeploy DR-50 authority. Portland/Kassab =
+     worked example. All on Sylvie's own asset = zero retailer risk. Goal: prove execution + move rankings.
+     Two layers in Ian's vision [39:33]: (1) optimize the retailer's page ON SYLVIE'S site (Sylvie controls
+     it), then (2) go to the retailer and offer to help their OWN local SEO/GBL too -> "we become their
+     agency as well as their supplier of jewelry."
    - **Phase 2:** Take the proven result to ONE friendly pilot retailer (Des Moines / Portland type), co-op
      funded, replicate on a live account.
    - **Phase 3:** Productize into the retailer-ACQUISITION pitch ("join Sylvie, we market your store") AND
