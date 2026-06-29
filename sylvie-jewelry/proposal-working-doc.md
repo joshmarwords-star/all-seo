@@ -46,36 +46,38 @@ Gary asked you to *"come back with your thoughts on how you can add the most val
    as their supplier of jewelry"). Two audiences, kept distinct:
    - **B2C demand** (consumers asking local jewelers for Sylvie) — fuels retention + acquisition.
    - **B2B acquisition** (reaching jeweler owners directly) — LinkedIn / custom-audience play.
-6. **Test phase = do hands-on work for SYLVIE THEMSELVES. Defer the retailer-reselling product.**
-   Two key realisations (from re-reading transcript):
-   - **They have NOT defined the retailer-facing product.** Ian conflates local SEO + Instagram ads + Google
-     Business Listing audits ([46:49], [41:30]). SEO? Ads? Social? GBL? Undefined. The proposal must NOT
-     invent a neat per-retailer package they never scoped — instead frame the channel as "to be determined by
-     testing" (find what moves the needle on Sylvie's own pages first, THEN package the winner for retailers).
-   - **What they actually agreed to is the test on Sylvie themselves.** Gary [48:42]: "I don't want to do
-     anything with customers until we can get comfortable with Josh and Josh can get comfortable he can add
-     value WITH US." The "us" = Sylvie. So the test touches NO retailers and doesn't need the retailer product
-     defined.
+6. **THE RETAILER MODEL IS THE HEADLINE. The test phase is that model proven on Sylvie's own pages first.**
+   The retailer enablement (helping retailers bring customers into their stores) is what Ian most wants and
+   must LEAD the proposal — do not bury it. Reconcile with Gary's "prove it on us first" by recognising the
+   test work IS the retailer playbook, just run on Sylvie's own asset (zero risk).
 
-   **Backbone:**
-   - **TEST PHASE — work for Sylvie's own business (no retailers touched):**
-     - (A) **Sylvie's own-site SEO** [LEAD — Top Click's core strength, fastest provable result]: technical
-       cleanup, redeploy DR-50 authority, AND optimize the EXISTING retailer landing pages (Ian [39:33]:
-       "we've got all these landing pages" — Des Moines ranks ~p1 #8-9; Portland/Kassab ~p2-3; these are
-       UNDER-OPTIMIZED, not missing). Portland/Kassab worked example: fix kw ("in Portland" ~20 vol ->
-       "Portland" ~400 vol), fix H1 (currently retailer name; target kw is only H2), build backlinks (Portland
-       page has NONE), lengthen meta. On Rank Math, all editable. Zero retailer risk.
-     - (B) **Sylvie's own retailer ACQUISITION (B2B)** [fast-follow — their #1 stated goal, 400->800]:
-       lead-gen to sign NEW retailers using their target-jeweler list -> LinkedIn / Meta custom audiences.
-       Still "for Sylvie", not for a retailer.
-   - **PHASE 2 (only after trust proven):** Take what worked to ONE friendly retailer; DEFINE the retailer
-     product THEN (SEO vs Ads vs social, decided by test learnings); funded by co-op dollars (~5% pot) +
-     small direct fee (~$1k/mo "random number", Gary [44:22]). Two layers (Ian [39:33]): optimize retailer's
-     page on Sylvie's site, then help retailer's OWN local SEO/GBL -> "their agency as well as their supplier."
-   - **PHASE 3:** Productize + scale the proven retailer package across the base; ongoing B2B acquisition.
-   Logic: own-business work is the only thing provable safely + fast, it's what they agreed to, and it
-   doesn't force a fake answer to the undefined retailer-channel question. Its results then define + fund
-   Phase 2.
+   **THE GOAL (headline):** Make Sylvie indispensable to jewelers like Gabriel & Co. -> grow 400 -> 800
+   retailers, by doing the needle-turner: helping retailers bring customers into their stores. Two engines:
+   - **Engine 1 — Retailer ENABLEMENT** (Ian's core vision / indispensability): help retailers sell locally
+     -> optimize their landing page, then their own local SEO / Google Business Listing, then ads driving
+     walk-ins. "We become their agency as well as their supplier" (Ian [39:33]).
+   - **Engine 2 — Retailer ACQUISITION** (the 400->800 growth): sign new retailers via B2B targeting
+     (LinkedIn / Meta custom audiences off their jeweler list) + consumer demand that makes jewelers WANT to
+     carry Sylvie.
+
+   **TEST PHASE = Step 1 of Engine 1, run safely on Sylvie's own turf (what Gary required, [48:42]):**
+   prove the enablement playbook on Sylvie's EXISTING retailer landing pages BEFORE touching a real retailer.
+   - Sylvie already has these pages (Ian [39:33]: "we've got all these landing pages" — Des Moines ~p1 #8-9;
+     Portland/Kassab ~p2-3; UNDER-OPTIMIZED, not missing). Optimizing the Portland/Kassab page IS retailer
+     enablement — that page exists to win "engagement rings Portland" and send walk-ins to Kassab.
+   - Worked example fixes: kw ("in Portland" ~20 vol -> "Portland" ~400 vol), H1 (currently retailer name;
+     target kw is only H2), backlinks (Portland page has NONE), meta length. On Rank Math, all editable.
+   - Plus foundational own-site technical + redeploy DR-50 authority (the landing pages live on that domain).
+   - Begin Engine 2 groundwork in parallel: target-jeweler list -> custom audiences / LinkedIn.
+   - Proves execution (closes the agency pain) AND de-risks the retailer model. No real retailer touched.
+
+   **NOTE — retailer channel is undefined by them.** Ian conflates local SEO + Instagram ads + GBL audits
+   ([46:49], [41:30]). Don't invent a fixed per-retailer package; frame the exact channel as "determined by
+   what works in the test", then packaged for retailers in Phase 2.
+
+   **PHASE 2 (after trust proven):** take the proven playbook to ONE friendly real retailer — help their OWN
+   site/GBL too — funded by co-op dollars (~5% pot) + small direct fee (~$1k/mo "random number", Gary
+   [44:22]). **PHASE 3:** productize + scale across the base; ongoing acquisition.
 
 ---
 
