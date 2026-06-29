@@ -147,6 +147,10 @@ tbody td{padding:9px 14px;vertical-align:middle}
 .empty h3{font-size:16px;font-weight:600;color:var(--text);margin-bottom:6px}
 .error-banner{background:var(--danger-l);border:1px solid rgba(192,57,43,.2);color:var(--danger);border-radius:var(--rs);padding:10px 14px;font-size:13px;margin-bottom:1rem;display:none}
 .info-banner{background:var(--serp-l);border:1px solid rgba(26,86,164,.15);color:var(--serp);border-radius:var(--rs);padding:10px 14px;font-size:13px;margin-bottom:1rem}
+.success-banner{background:var(--green-l);border:1px solid rgba(45,106,79,.2);color:var(--green);border-radius:var(--rs);padding:10px 14px;font-size:13px;margin-bottom:1rem;display:none}
+.success-banner a{color:var(--green);font-weight:600}
+.ghost-cfg{margin-top:14px;padding-top:14px;border-top:1px dashed var(--border2)}
+.ghost-cfg .ghost-hint{font-size:11px;color:var(--text3);margin-top:8px}
 hr.div{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
 @media(max-width:768px){
   .tab-panel{padding:1rem}
@@ -235,11 +239,22 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
       <div id="rank-result"></div>
     </div>
     <div class="tab-panel" id="tab-backlinks">
-      <div class="search-bar"><div class="sg sg-2">
-        <div class="field"><label>Domain or URL</label><input type="text" id="bl-domain" placeholder="topclick.co.za" onkeydown="if(event.key==='Enter')searchBacklinks()"/></div>
-        <button class="btn btn-dark" id="bl-btn" onclick="searchBacklinks()" style="align-self:end">Check Backlinks</button>
-      </div></div>
+      <div class="search-bar">
+        <div class="sg sg-2">
+          <div class="field"><label>Domain or URL</label><input type="text" id="bl-domain" placeholder="topclick.co.za" onkeydown="if(event.key==='Enter')searchBacklinks()"/></div>
+          <button class="btn btn-dark" id="bl-btn" onclick="searchBacklinks()" style="align-self:end">Check Backlinks</button>
+        </div>
+        <div class="ghost-cfg">
+          <div class="sg sg-3">
+            <div class="field"><label>Ghost Admin API URL</label><input type="text" id="ghost-url" placeholder="https://yourblog.ghost.io"/></div>
+            <div class="field"><label>Ghost Admin API key</label><input type="password" id="ghost-key" placeholder="id:secret"/></div>
+            <button class="btn btn-outline" id="bl-ghost-btn" onclick="pushBacklinksToGhost()" style="align-self:end" disabled>Push all to Ghost</button>
+          </div>
+          <div class="ghost-hint">Publishes every referring domain as a draft post on your Ghost blog. Find your Admin API key under Ghost&nbsp;Admin → Settings → Integrations → Add custom integration.</div>
+        </div>
+      </div>
       <div id="bl-err" class="error-banner"></div>
+      <div id="bl-ghost-msg" class="success-banner"></div>
       <div id="bl-loader" class="loader"><div class="spinner" style="border-top-color:var(--bl)"></div>Fetching backlink data…</div>
       <div id="bl-result"></div>
     </div>
@@ -304,7 +319,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
   </div>
 </div>
 <script>
-let L='',P='',gDomain='',categories=[],catIdx=-1,geoTimer=null,latLng=null,lstResults=[],lstTotal=0,lstOffset=0;
+let L='',P='',gDomain='',categories=[],catIdx=-1,geoTimer=null,latLng=null,lstResults=[],lstTotal=0,lstOffset=0,blTarget='',blSummary=null;
 const EP={
   kw:'https://api.dataforseo.com/v3/keywords_data/google_ads/search_volume/live',
   serp:'https://api.dataforseo.com/v3/serp/google/organic/live/regular',
@@ -521,6 +536,8 @@ async function searchBacklinks(){
     ]);
     var sum=results[0].tasks&&results[0].tasks[0]&&results[0].tasks[0].result&&results[0].tasks[0].result[0];
     var doms=results[1].tasks&&results[1].tasks[0]&&results[1].tasks[0].result&&results[1].tasks[0].result[0]&&results[1].tasks[0].result[0].items||[];
+    blTarget=target;blSummary=sum||null;
+    document.getElementById('bl-ghost-btn').disabled=false;
     var stats='<div class="stats-row" style="margin-bottom:1.5rem">'+
       '<div class="stat-card"><div class="stat-label">Domain rank</div><div class="stat-value">'+(sum&&sum.rank||'—')+'</div></div>'+
       '<div class="stat-card"><div class="stat-label">Total backlinks</div><div class="stat-value">'+num(sum&&sum.backlinks||0)+'</div></div>'+
@@ -535,6 +552,79 @@ async function searchBacklinks(){
       '<tbody>'+rows+'</tbody></table></div>');
   }catch(e){showErr('bl-err','Error: '+e.message);}
   hide('bl-loader');setBtn('bl-btn',false,'Check Backlinks');
+}
+function b64url(bytes){
+  var bin='';for(var i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
+  return btoa(bin).replace(/=+$/,'').replace(/\+/g,'-').replace(/\//g,'_');
+}
+function b64urlStr(s){return b64url(new TextEncoder().encode(s));}
+// Build a short-lived JWT for the Ghost Admin API from an "id:secret" key (HS256, /admin/ audience).
+async function ghostJWT(key){
+  var parts=(key||'').split(':');
+  if(parts.length!==2||!parts[0]||!parts[1])throw new Error('Admin API key must be in the form id:secret');
+  var id=parts[0],secretHex=parts[1];
+  var now=Math.floor(Date.now()/1000);
+  var head=b64urlStr(JSON.stringify({alg:'HS256',typ:'JWT',kid:id}));
+  var body=b64urlStr(JSON.stringify({iat:now,exp:now+300,aud:'/admin/'}));
+  var data=head+'.'+body;
+  var secret=new Uint8Array(secretHex.length/2);
+  for(var i=0;i<secret.length;i++)secret[i]=parseInt(secretHex.substr(i*2,2),16);
+  var ck=await crypto.subtle.importKey('raw',secret,{name:'HMAC',hash:'SHA-256'},false,['sign']);
+  var sig=await crypto.subtle.sign('HMAC',ck,new TextEncoder().encode(data));
+  return data+'.'+b64url(new Uint8Array(sig));
+}
+function buildBacklinkReportHTML(target,sum,doms){
+  var s=sum||{};
+  var stat=function(l,v){return'<tr><td><strong>'+esc(l)+'</strong></td><td>'+esc(num(v||0))+'</td></tr>';};
+  var html='<p>Backlink profile for <strong>'+esc(target)+'</strong>, generated '+esc(new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}))+'.</p>'+
+    '<h2>Summary</h2><table><tbody>'+
+    '<tr><td><strong>Domain rank</strong></td><td>'+esc(s.rank||'—')+'</td></tr>'+
+    stat('Total backlinks',s.backlinks)+stat('Referring domains',s.referring_domains)+
+    stat('Dofollow backlinks',s.backlinks_dofollow)+stat('Nofollow backlinks',s.backlinks_nofollow)+
+    stat('Referring IPs',s.referring_ips)+stat('Broken backlinks',s.broken_backlinks)+
+    '</tbody></table>'+
+    '<h2>Referring domains ('+doms.length+')</h2>'+
+    '<table><thead><tr><th>Domain</th><th>Rank</th><th>Backlinks</th><th>Dofollow</th><th>Nofollow</th><th>Status</th></tr></thead><tbody>'+
+    doms.map(function(d){return'<tr><td>'+esc(d.domain)+'</td><td>'+esc(d.rank||'—')+'</td><td>'+esc(num(d.backlinks||0))+'</td>'+
+      '<td>'+esc(num(d.dofollow||0))+'</td><td>'+esc(num(d.nofollow||0))+'</td><td>'+(d.is_broken?'Broken':'Active')+'</td></tr>';}).join('')+
+    '</tbody></table>';
+  return html;
+}
+async function pushBacklinksToGhost(){
+  var gurl=document.getElementById('ghost-url').value.trim().replace(/\/+$/,'');
+  var gkey=document.getElementById('ghost-key').value.trim();
+  hideErr('bl-err');hide('bl-ghost-msg');
+  if(!blTarget){showErr('bl-err','Run a backlinks search first.');return;}
+  if(!gurl||!gkey){showErr('bl-err','Enter your Ghost Admin API URL and key.');return;}
+  var btn=document.getElementById('bl-ghost-btn');btn.disabled=true;btn.textContent='Pushing…';
+  try{
+    // Pull the full referring-domains list (not just the 25 shown in the table) so we push them all.
+    var dr=await api(EP.bl_domains,[{target:blTarget,include_subdomains:true,limit:1000,order_by:['rank,desc']}]);
+    var doms=dr.tasks&&dr.tasks[0]&&dr.tasks[0].result&&dr.tasks[0].result[0]&&dr.tasks[0].result[0].items||[];
+    var token=await ghostJWT(gkey);
+    var html=buildBacklinkReportHTML(blTarget,blSummary,doms);
+    var title='Backlink report — '+blTarget+' ('+new Date().toLocaleDateString('en-GB')+')';
+    var resp=await fetch(gurl+'/ghost/api/admin/posts/?source=html',{
+      method:'POST',
+      headers:{'Authorization':'Ghost '+token,'Content-Type':'application/json','Accept-Version':'v5.0'},
+      body:JSON.stringify({posts:[{title:title,html:html,status:'draft',tags:[{name:'SEO'},{name:'Backlinks'}]}]})
+    });
+    var data=await resp.json().catch(function(){return null;});
+    if(!resp.ok){
+      var m=data&&data.errors&&data.errors[0]&&data.errors[0].message||('Ghost returned HTTP '+resp.status);
+      throw new Error(m);
+    }
+    var post=data&&data.posts&&data.posts[0];
+    var editUrl=post?gurl+'/ghost/#/editor/post/'+post.id:gurl;
+    var msg=document.getElementById('bl-ghost-msg');
+    msg.innerHTML='✓ Pushed '+doms.length+' referring domains for <strong>'+esc(blTarget)+'</strong> to Ghost as a draft post. '+
+      '<a href="'+esc(editUrl)+'" target="_blank" rel="noopener">Open in Ghost editor →</a>';
+    msg.style.display='block';
+  }catch(e){
+    var hint=/Failed to fetch|NetworkError|CORS/i.test(e.message)?' Your Ghost site may be blocking browser (CORS) requests to the Admin API — pushes need to come from a server or a Ghost instance that allows this origin.':'';
+    showErr('bl-err','Ghost push failed: '+e.message+hint);
+  }
+  btn.disabled=false;btn.textContent='Push all to Ghost';
 }
 async function runAudit(){
   var url=document.getElementById('op-url').value.trim();
