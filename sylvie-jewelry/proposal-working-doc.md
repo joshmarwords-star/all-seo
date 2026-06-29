@@ -46,43 +46,58 @@ Gary asked you to *"come back with your thoughts on how you can add the most val
    as their supplier of jewelry"). Two audiences, kept distinct:
    - **B2C demand** (consumers asking local jewelers for Sylvie) — fuels retention + acquisition.
    - **B2B acquisition** (reaching jeweler owners directly) — LinkedIn / custom-audience play.
-6. **Lead with engine (a) retailer-enablement / local SEO, NOT (b) direct B2B owner-acquisition.** Proposed
-   phasing (this is the backbone — confirm in AM):
-   - **Phase 1 (test phase):** On Sylvie's OWN site. NOTE: Sylvie ALREADY HAS a location/retailer landing
-     page per retailer on their own site (Ian [39:33]: "we've got all these landing pages" — Des Moines ranks
-     ~p1 #8-9; Portland/Kassab ~p2-3). So Phase 1 is NOT building pages — it's OPTIMIZING the existing,
-     under-optimized pages to push them toward #1: fix keyword targeting ("in Portland" ~20 vol -> "Portland"
-     ~400 vol), fix H1 (currently retailer name; target kw is only an H2), build backlinks (the Portland page
-     has NONE), lengthen meta. Plus general technical cleanup + redeploy DR-50 authority. Portland/Kassab =
-     worked example. All on Sylvie's own asset = zero retailer risk. Goal: prove execution + move rankings.
-     Two layers in Ian's vision [39:33]: (1) optimize the retailer's page ON SYLVIE'S site (Sylvie controls
-     it), then (2) go to the retailer and offer to help their OWN local SEO/GBL too -> "we become their
-     agency as well as their supplier of jewelry."
-   - **Phase 2:** Take the proven result to ONE friendly pilot retailer (Des Moines / Portland type), co-op
-     funded, replicate on a live account.
-   - **Phase 3:** Productize into the retailer-ACQUISITION pitch ("join Sylvie, we market your store") AND
-     layer in direct B2B owner-targeting (LinkedIn / custom audiences). Engine (b) switches on here, backed
-     by proof.
-   Logic: (a) is the only engine that can be proven safely + fast, AND its proof is the ammunition for (b).
+6. **Test phase = do hands-on work for SYLVIE THEMSELVES. Defer the retailer-reselling product.**
+   Two key realisations (from re-reading transcript):
+   - **They have NOT defined the retailer-facing product.** Ian conflates local SEO + Instagram ads + Google
+     Business Listing audits ([46:49], [41:30]). SEO? Ads? Social? GBL? Undefined. The proposal must NOT
+     invent a neat per-retailer package they never scoped — instead frame the channel as "to be determined by
+     testing" (find what moves the needle on Sylvie's own pages first, THEN package the winner for retailers).
+   - **What they actually agreed to is the test on Sylvie themselves.** Gary [48:42]: "I don't want to do
+     anything with customers until we can get comfortable with Josh and Josh can get comfortable he can add
+     value WITH US." The "us" = Sylvie. So the test touches NO retailers and doesn't need the retailer product
+     defined.
+
+   **Backbone:**
+   - **TEST PHASE — work for Sylvie's own business (no retailers touched):**
+     - (A) **Sylvie's own-site SEO** [LEAD — Top Click's core strength, fastest provable result]: technical
+       cleanup, redeploy DR-50 authority, AND optimize the EXISTING retailer landing pages (Ian [39:33]:
+       "we've got all these landing pages" — Des Moines ranks ~p1 #8-9; Portland/Kassab ~p2-3; these are
+       UNDER-OPTIMIZED, not missing). Portland/Kassab worked example: fix kw ("in Portland" ~20 vol ->
+       "Portland" ~400 vol), fix H1 (currently retailer name; target kw is only H2), build backlinks (Portland
+       page has NONE), lengthen meta. On Rank Math, all editable. Zero retailer risk.
+     - (B) **Sylvie's own retailer ACQUISITION (B2B)** [fast-follow — their #1 stated goal, 400->800]:
+       lead-gen to sign NEW retailers using their target-jeweler list -> LinkedIn / Meta custom audiences.
+       Still "for Sylvie", not for a retailer.
+   - **PHASE 2 (only after trust proven):** Take what worked to ONE friendly retailer; DEFINE the retailer
+     product THEN (SEO vs Ads vs social, decided by test learnings); funded by co-op dollars (~5% pot) +
+     small direct fee (~$1k/mo "random number", Gary [44:22]). Two layers (Ian [39:33]): optimize retailer's
+     page on Sylvie's site, then help retailer's OWN local SEO/GBL -> "their agency as well as their supplier."
+   - **PHASE 3:** Productize + scale the proven retailer package across the base; ongoing B2B acquisition.
+   Logic: own-business work is the only thing provable safely + fast, it's what they agreed to, and it
+   doesn't force a fake answer to the undefined retailer-channel question. Its results then define + fund
+   Phase 2.
 
 ---
 
 ## WHERE WE LEFT OFF
 
-We had just agreed the spine + the Phase 1/2/3 sequencing. **Open question to confirm in AM:** does the
-phasing feel right? If yes, it's the proposal backbone.
+Confirmed the corrected backbone (decision #6 above): test phase = work for Sylvie THEMSELVES (own-site SEO
+lead, B2B retailer-acquisition fast-follow); retailer-reselling product DEFERRED to Phase 2 and explicitly
+"to be defined by testing." Co-op economics walked through (chunk 5).
 
 **Chunks of the meeting still to walk through before drafting:**
-- [ ] Co-op economics (how the retailer marketing is funded — see Gary's $100→$5 split, "$1,000/month" example)
-- [ ] Portland audit specifics (the concrete on-page findings to showcase as the worked example)
+- [x] Co-op economics (Gary's $100->$5 / ~5% co-op pot + "$1,000/month" small direct fee; funds Phase 2 only)
 - [ ] Top Click team / capabilities & what's explicitly out of scope (no socials, no content creation)
 - [ ] Case studies to cite (Sun Ninja playbook; Display It $30k→$10k, tripled traffic)
+- [ ] (Optional) Portland audit specifics already captured in SEO data points below
 
 **Still to decide before/while drafting:**
-- [ ] **Pricing model** — they named NO budget ("I don't know what I want to spend… I want to know what
-      turns the needle"). Decide: monthly retainer vs phased/test-phase fee vs hold pricing for follow-up.
-- [ ] **Test-phase scope** — Sylvie's own site only (recommended) vs include a friendly pilot retailer.
-- [ ] **Embedded pod vs standard retainer** — how to structure/position the team allocation for Sylvie.
+- [ ] **Pricing model** — they named NO budget. NOTE the two distinct pricing conversations:
+      (a) Sylvie retainer for the TEST PHASE (direct Sylvie->Top Click fee, no co-op), and
+      (b) per-retailer co-op-fundable package for PHASE 2+ (small, productized, ~$1k/mo ballpark, scales on volume).
+      Decide: name a test-phase retainer figure vs hold pricing for a follow-up call.
+- [ ] **Embedded pod vs standard retainer** — how to structure/position team allocation (address "spread too thin").
+- [ ] **Writer** — confirm Option 3->2 (Top Click sources + manages through test phase).
 
 ---
 
