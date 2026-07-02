@@ -89,12 +89,16 @@ what we'd fix:
 | Meta description too short | Rewrite for click-through |
 
 This is the retailer enablement model in miniature — that page exists to win local searches and
-send walk-ins to Kassab. Prove it here, on your asset, and we've proven it everywhere. In
-parallel we handle foundational technical clean-up and begin the acquisition groundwork (turning
-your jeweler list into ad-ready audiences).
+send walk-ins to Kassab. Prove it here, on your asset, and we've proven it everywhere.
 
-**What the test phase proves:** that we execute, A-to-Z, hands-on — and that the model works —
-before a single retailer is involved.
+And this phase is bigger than a few pages. Our core focus throughout is **building your retail
+network — the road from 400 to 800 stores**. We act as your full marketing partner across SEO,
+Google and Bing Ads, social ads and strategy, all aimed at that growth: sharpening your own site
+as the foundation, and beginning the acquisition groundwork (turning your jeweler list into
+ad-ready audiences), with us as a standing sounding board throughout.
+
+**What this phase proves:** that we execute, A-to-Z, hands-on, across every channel — and that
+the model works — before a single retailer is involved.
 
 ---
 
@@ -132,17 +136,21 @@ and a magnet for the next 400. Acquisition runs continuously alongside.
 
 ## 7. Commercials
 
-Two separate conversations, deliberately:
+Two separate conversations, deliberately — each an all-in package, not a line-item menu:
 
-- **The test phase (your own site):** a flat monthly retainer of **$2,000/month**
-  *[placeholder — Josh to confirm]*, month to month, no long lock-in. Small on purpose: it's a
-  prove-it price, and the whole point is to earn the next phase.
+- **Building Sylvie's retail network — $3,500/month:** our core focus — growing you from ~400
+  retailers to 800. A single monthly retainer, full-service across every channel — SEO, Google Ads
+  and Bing Ads, social ads, and strategy — covering both the drive to acquire new retailers and the
+  optimisation of your own site and landing pages that powers it. Plus your standing sounding board,
+  advisor and partner. Month to month, no long lock-in.
 
-- **The retailer rollout (Phase 2+):** priced *per retailer*, designed to be largely covered by
-  existing co-op dollars (~$1,000/month/retailer ballpark). This is where the model scales — small
-  per store, meaningful across hundreds.
+- **Per-retailer package (Phase 2+) — $500/store/month:** once we roll out to your stores, a
+  complete local-marketing package for each retailer — local SEO, Google Ads and Bing Ads, social
+  ads, and ongoing advice — designed to be largely covered by existing co-op dollars. Small per
+  store, meaningful across hundreds.
 
-We don't bill for "a few hours of ideas a month." We bill for work shipped and outcomes moved.
+We don't bill for "a few hours of ideas a month." This is a full-service partnership — work
+shipped and outcomes moved across every channel that matters.
 
 ---
 
