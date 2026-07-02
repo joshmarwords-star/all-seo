@@ -1,0 +1,432 @@
+<style>
+  :root {
+    --paper: #FAF8F5;
+    --paper-2: #F3EEE7;
+    --ink: #221F1D;
+    --ink-soft: #3A3531;
+    --muted: #6E665F;
+    --garnet: #7A2E3A;
+    --garnet-bright: #9B3B49;
+    --rule: #E6DFD6;
+    --rule-strong: #D6CCBF;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  .doc {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px 96px;
+  }
+
+  /* ---- Cover ---- */
+  .cover {
+    background: var(--ink);
+    color: var(--paper);
+    margin: 0 0 56px;
+    padding: 72px 0 60px;
+    position: relative;
+  }
+  .cover::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 3px;
+    background: var(--garnet);
+  }
+  .cover .wrap { padding-bottom: 0; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #C9A9AE;
+    margin: 0 0 22px;
+  }
+  .cover h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 6vw, 52px);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 20px;
+  }
+  .cover .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(18px, 2.4vw, 21px);
+    line-height: 1.5;
+    color: #E7DCD0;
+    max-width: 34em;
+    margin: 0 0 34px;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 40px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 14px;
+  }
+  .meta div { display: flex; flex-direction: column; gap: 3px; }
+  .meta .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9C938B;
+  }
+  .meta .v { color: var(--paper); }
+
+  /* ---- Intro note ---- */
+  .note {
+    font-size: 18px;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--garnet);
+    padding: 2px 0 2px 22px;
+    margin: 0 0 60px;
+  }
+  .note p { margin: 0 0 14px; }
+  .note p:last-child { margin-bottom: 0; }
+
+  /* ---- Sections ---- */
+  section { margin: 0 0 52px; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .sec-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--garnet);
+    letter-spacing: 0.04em;
+    flex: none;
+    padding-top: 4px;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(23px, 3.4vw, 29px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0;
+  }
+  p { margin: 0 0 16px; }
+  .lead-in { color: var(--ink); }
+  strong { font-weight: 600; color: var(--ink); }
+  a { color: var(--garnet-bright); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+  /* pull quote */
+  .pull {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3.6vw, 28px);
+    line-height: 1.3;
+    color: var(--garnet);
+    text-wrap: balance;
+    margin: 28px 0;
+    padding: 0 0 0 4px;
+  }
+  .pull .mark { color: var(--rule-strong); }
+
+  /* engine / list cards */
+  .stack { display: flex; flex-direction: column; gap: 20px; margin: 8px 0 4px; }
+  .engine {
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 22px 24px;
+  }
+  .engine h3 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--garnet);
+    margin: 0 0 6px;
+  }
+  .engine h3 span { color: var(--muted); font-weight: 500; text-transform: none; letter-spacing: 0; }
+  .engine p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+
+  /* audit table */
+  .table-scroll { overflow-x: auto; margin: 20px 0 4px; border: 1px solid var(--rule); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; font-size: 15.5px; }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 14px 18px 0;
+  }
+  th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 14px 18px 10px;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  td { padding: 14px 18px; vertical-align: top; border-bottom: 1px solid var(--rule); line-height: 1.5; }
+  tr:last-child td { border-bottom: none; }
+  td.fix { color: var(--ink); font-weight: 500; }
+  td.found { color: var(--ink-soft); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* commercials */
+  .price-grid { display: flex; flex-direction: column; gap: 16px; margin: 8px 0; }
+  .price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 20px;
+    padding: 20px 24px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--paper-2);
+  }
+  .price .label { font-weight: 600; font-size: 16px; }
+  .price .desc { color: var(--muted); font-size: 14.5px; flex: 1 1 240px; }
+  .price .fig {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--garnet);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .price .fig small { font-size: 14px; color: var(--muted); font-family: var(--sans); }
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--garnet);
+    border: 1px solid var(--rule-strong);
+    border-radius: 2px;
+    padding: 2px 7px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* next steps */
+  ol.steps { margin: 8px 0; padding: 0; list-style: none; counter-reset: step; }
+  ol.steps li {
+    position: relative;
+    padding: 0 0 16px 44px;
+    counter-increment: step;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: -2px;
+    width: 28px; height: 28px;
+    display: grid; place-items: center;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--garnet);
+    border: 1px solid var(--rule-strong);
+    border-radius: 50%;
+  }
+  ol.steps li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 13.5px; top: 30px; bottom: 4px;
+    width: 1px; background: var(--rule);
+  }
+
+  .signoff {
+    margin-top: 48px;
+    padding-top: 22px;
+    border-top: 2px solid var(--ink);
+    font-family: var(--serif);
+  }
+  .signoff .name { font-size: 19px; font-weight: 600; }
+  .signoff .co { color: var(--muted); font-family: var(--sans); font-size: 14px; letter-spacing: 0.04em; }
+
+  ul.tight { margin: 8px 0 16px; padding-left: 20px; }
+  ul.tight li { margin: 0 0 10px; padding-left: 4px; }
+
+  @media (max-width: 480px) {
+    .doc { font-size: 16px; }
+    .price .fig { font-size: 22px; }
+  }
+</style>
+
+<article class="doc">
+  <header class="cover">
+    <div class="wrap">
+      <p class="eyebrow">Partnership Proposal</p>
+      <h1>Growing Sylvie, Retailer by Retailer</h1>
+      <p class="lede">You don't need another partner with great ideas you then have to execute yourselves. You need a partner who does the work.</p>
+      <div class="meta">
+        <div><span class="k">Prepared for</span><span class="v">Ian &amp; Gary Levine — Sylvie Jewelry</span></div>
+        <div><span class="k">From</span><span class="v">Joshua Maraney — Top Click</span></div>
+        <div><span class="k">Date</span><span class="v">2 July 2026</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="note">
+      <p>Ian, Gary — thank you for the time and the candour over our last two calls. This isn't a templated agency pitch. It's our honest read on where the needle actually moves for Sylvie, and exactly how we'd start: small, proven, and hands-on.</p>
+    </div>
+
+    <section>
+      <div class="sec-head"><span class="sec-num">01</span><h2>The goal</h2></div>
+      <p>You said it best: the real game-changer isn't ranking Sylvie for “engagement rings.” It's becoming <strong>indispensable to your retailers</strong> — the way Gabriel &amp; Co. did on their way to 1,500+ stores. If Sylvie can help a jeweler bring customers through their door, that jeweler never leaves, and the ones down the road want in too.</p>
+      <p class="pull"><span class="mark">“</span>Grow Sylvie from ~400 retailers to 800 — by being the supplier that also brings shoppers into each retailer's store.<span class="mark">”</span></p>
+      <p>Everything below serves that one outcome.</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-num">02</span><h2>The opportunity we see</h2></div>
+      <p>Two things stood out when we looked under the hood.</p>
+      <ul class="tight">
+        <li><strong>You already have real authority — it's just aimed at the wrong targets.</strong> Sylvie sits at a Domain Rating of 50 (Ahrefs) / Authority Score 41 (SEMrush). That's genuinely strong. But much of it is spent on informational traffic (“stones for July born” — 40,000 searches a month that don't sell a ring) and on head terms the pure-B2C players own and a B2B brand structurally can't win. We don't need to build authority from scratch — we need to <strong>redeploy the authority you already have</strong> toward terms that map to your business.</li>
+        <li><strong>Your retailer landing pages are a hidden asset.</strong> You already have a page per retailer location. Some rank on page one today (Des Moines). They're simply under-optimised — so the fastest wins require <strong>improving what exists, not building anything new.</strong></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-num">03</span><h2>The plan — two engines</h2></div>
+      <div class="stack">
+        <div class="engine">
+          <h3>Engine 1 — Retailer enablement <span>· make Sylvie indispensable</span></h3>
+          <p>Help each retailer sell locally: optimise their Sylvie landing page to rank for the local “engagement rings [city]” searches, then extend to their own Google Business Profile and local SEO, then drive walk-ins. In your words — we become their agency as well as their supplier.</p>
+        </div>
+        <div class="engine">
+          <h3>Engine 2 — Retailer acquisition <span>· get from 400 to 800</span></h3>
+          <p>Reach jeweler owners directly and sign new accounts — using your target-jeweler list to build custom audiences on Meta and LinkedIn — plus consumer demand that makes jewelers want to carry the line. The jewelry world may be a handshake industry, but every owner is still findable online.</p>
+        </div>
+      </div>
+      <p style="margin-top:20px">The exact channel mix per retailer — SEO vs local ads vs social — we <strong>won't guess at.</strong> We'll let the test phase tell us what actually moves the needle, then package the winner.</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-num">04</span><h2>How we start — a low-risk test phase</h2></div>
+      <p>You were clear, and we agree completely: <strong>nothing goes near a real retailer relationship until we've proven ourselves.</strong> A relationship you've spent years building is not something to experiment on.</p>
+      <p>So we prove the retailer model <strong>on your own pages first</strong> — same playbook, zero risk. Your Portland / Kassab Jewelers page is the perfect worked example. Here's what we found live on the call, and what we'd fix:</p>
+      <div class="table-scroll">
+        <table>
+          <caption>Portland landing page — live audit</caption>
+          <thead>
+            <tr><th scope="col">What we found</th><th scope="col">The fix</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="found">Page targets “engagement rings <em>in</em> Portland” — only <span class="num">~20</span> searches/mo</td>
+              <td class="fix">Retarget to “engagement rings Portland” — <span class="num">~400</span> searches/mo. <span class="num">20×</span> the demand.</td>
+            </tr>
+            <tr>
+              <td class="found">The target keyword sits in an <strong>H2</strong>; the H1 is the retailer's name</td>
+              <td class="fix">Promote the keyword to the H1</td>
+            </tr>
+            <tr>
+              <td class="found"><strong>No backlinks</strong> point to the Portland page</td>
+              <td class="fix">Build direct links to it</td>
+            </tr>
+            <tr>
+              <td class="found">Meta description too short</td>
+              <td class="fix">Rewrite for click-through</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:20px">This is the retailer enablement model in miniature — that page exists to win local searches and send walk-ins to Kassab. Prove it here, on your asset, and we've proven it everywhere. In parallel we handle foundational technical clean-up and begin the acquisition groundwork, turning your jeweler list into ad-ready audiences.</p>
+      <p><strong>What the test phase proves:</strong> that we execute, A-to-Z, hands-on — and that the model works — before a single retailer is involved.</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-num">05</span><h2>Why we can execute where others stalled</h2></div>
+      <p>We're a <strong>seven-person, full-time team</strong> and our whole model is doing the work, not just advising on it. Two snapshots of how we actually operate:</p>
+      <ul class="tight">
+        <li><strong>A US Shopify brand.</strong> We spent 6–7 hours on keyword research, then did the work: rewrote every page title and description, fixed the H1s, renamed and compressed images, submitted and indexed sitemaps in Google and Bing, ran a backlink toxicity and gap audit, and now build links monthly through guest posts and digital PR. Authority built through the product and collection pages that actually sell — not blogs for the sake of it.</li>
+        <li><strong>A US trade-show display company.</strong> Was paying a US agency <strong>$30,000/month.</strong> We took it on at a fraction of that and <strong>tripled their traffic.</strong></li>
+      </ul>
+      <p>That cost advantage is real and it's yours to use: a full South-African team delivers what a US agency charges multiples for. You already sensed this — it's exactly why the model works.</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-num">06</span><h2>The rollout, once we've earned it</h2></div>
+      <div class="stack">
+        <div class="engine">
+          <h3>Phase 2 — one friendly retailer</h3>
+          <p>We take the proven playbook to a single willing retailer, help with their own site and Google Business Profile, and show walk-in traffic. Funded the smart way: from existing co-op dollars — the ~5% marketing pot they already accrue with you — a small matched contribution, and a modest direct fee. No new budget required to start.</p>
+        </div>
+        <div class="engine">
+          <h3>Phase 3 — scale</h3>
+          <p>We productise the proven package and roll it across the retailer base: a standardised, co-op-fundable local-marketing offering that makes Sylvie indispensable to all 400, and a magnet for the next 400. Acquisition runs continuously alongside.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-num">07</span><h2>Commercials</h2></div>
+      <p>Two separate conversations, deliberately:</p>
+      <div class="price-grid">
+        <div class="price">
+          <div>
+            <div class="label">Test phase — your own site <span class="tag">placeholder</span></div>
+            <div class="desc">Flat monthly retainer, month to month, no long lock-in. Small on purpose: a prove-it price whose whole job is to earn the next phase.</div>
+          </div>
+          <div class="fig">$2,000<small> / mo</small></div>
+        </div>
+        <div class="price">
+          <div>
+            <div class="label">Retailer rollout — Phase 2+</div>
+            <div class="desc">Priced per retailer, designed to be largely covered by existing co-op dollars. Small per store, meaningful across hundreds.</div>
+          </div>
+          <div class="fig">~$1,000<small> / store / mo</small></div>
+        </div>
+      </div>
+      <p style="margin-top:20px">We don't bill for “a few hours of ideas a month.” We bill for work shipped and outcomes moved.</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-num">08</span><h2>Content — closing the gap that stalled you</h2></div>
+      <p>The thing that broke the last relationship was execution on copy — you couldn't find or manage writers. We'll close that gap for you: during the test phase <strong>we source and manage a writer</strong> (a strong full-time option runs ~R25,000/month, billed transparently at cost), so pages actually ship in your voice. Once it's humming, you keep them via us or bring them in-house — your call. You get one point of accountability, not another hiring project.</p>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="sec-num">09</span><h2>Next steps</h2></div>
+      <ol class="steps">
+        <li>You give this a read and tell us if the direction feels right.</li>
+        <li>We agree the test-phase scope and start on your own retailer pages — Portland first.</li>
+        <li>We introduce a writer to close the content gap.</li>
+        <li>We share the LinkedIn / owner-targeting outline for acquisition.</li>
+      </ol>
+      <p style="margin-top:8px">Small start, real work, fast proof — then we scale it together.</p>
+      <div class="signoff">
+        <div class="name">Joshua Maraney</div>
+        <div class="co">Top Click</div>
+      </div>
+    </section>
+  </div>
+</article>
