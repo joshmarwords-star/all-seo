@@ -1,7 +1,12 @@
 # Sylvie Jewelry × Top Click — Proposal Working Doc
 
 > Saved progress from our transcript walkthrough. Pick up at **"WHERE WE LEFT OFF"** below.
-> Last updated: 2026-06-28.
+> Last updated: 2026-07-02.
+>
+> **DRAFT PROPOSAL WRITTEN:** see `sylvie-proposal.md` (~3-page, vision-led, Portland audit as proof,
+> outcome-framed test-phase price). Open items to confirm with Josh: (1) test-phase $ figure (currently
+> $2,000/mo PLACEHOLDER); (2) whether to keep case-study client names + the $30k→$10k figures in a
+> client-facing doc; (3) final format for sending (PDF / Google Doc / web).
 
 ---
 
